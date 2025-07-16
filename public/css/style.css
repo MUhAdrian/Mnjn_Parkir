@@ -1,0 +1,437 @@
+/* General Body Styles */
+body {
+  background-color: #f8f9fa; /* Light gray background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #343a40; /* Dark gray text */
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #007bff; /* Primary blue */
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+.navbar-brand {
+  font-weight: bold;
+  color: #fff !important;
+}
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #fff !important;
+}
+
+/* Card Styles (General) */
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  /* padding: 20px; */ /* Padding ini akan di-override oleh spesifik card */
+  border: none; /* Remove default border */
+  background-color: #fff;
+}
+
+/* Form Label Styles */
+.form-label {
+  font-weight: 600;
+  color: #343a40;
+}
+
+/* Button Styles (General) */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Alert Styles */
+.alert {
+  border-radius: 10px;
+}
+
+  /* Dashboard Specific Styles */
+  .dashboard-container {
+      padding-top: 30px;
+      padding-bottom: 50px;
+  }
+
+  .dashboard-container h2 {
+      color: #007bff;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      font-weight: 600;
+  }
+
+  .dashboard-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .dashboard-card-link .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+  .dashboard-card-link .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+  }
+
+  .dashboard-card-body {
+    text-align: center;
+    padding: 20px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Ikon Dashboard - Default State */
+  .dashboard-card-icon {
+    font-size: 2.5rem;
+    color: #007bff; /* Warna default ikon */
+    margin-bottom: 15px;
+    /* Hapus transisi di sini, karena kita akan pakai animasi keyframes */
+  }
+
+  /* Efek hover pada ikon saat kursor di atas kartu */
+  .dashboard-card-link .card:hover .dashboard-card-icon {
+    /* Hapus transform dan color di sini, karena akan diganti dengan animasi */
+    animation-fill-mode: forwards; /* Memastikan animasi tetap pada frame terakhir */
+  }
+
+  /* --- Keyframe Animations for Icons --- */
+
+  /* Animasi untuk Ikon Mobil (Masuk/Keluar) - Contoh: sedikit 'bounce' atau 'drive' */
+  @keyframes carDrive {
+    0% { transform: translateX(0) scale(1); color: #007bff; }
+    25% { transform: translateX(5px) scale(1.05); color: #28a745; } /* Bergerak ke kanan, sedikit membesar, ganti warna */
+    50% { transform: translateX(-5px) scale(1.05); color: #28a745; } /* Bergerak ke kiri */
+    75% { transform: translateX(5px) scale(1.05); color: #28a745; }
+    100% { transform: translateX(0) scale(1); color: #007bff; } /* Kembali ke posisi awal, warna default */
+  }
+
+  /* Animasi untuk Ikon Tag (Atur Tarif) - Contoh: sedikit 'wiggle' atau 'pop' */
+  @keyframes tagPop {
+    0% { transform: scale(1) rotate(0deg); color: #007bff; }
+    50% { transform: scale(1.2) rotate(5deg); color: #ffc107; } /* Membesar dan sedikit berputar, ganti warna */
+    100% { transform: scale(1) rotate(0deg); color: #007bff; }
+  }
+
+  /* Animasi untuk Ikon Chart (Laporan Transaksi) - Contoh: 'grow' */
+  @keyframes chartGrow {
+    0% { transform: scaleY(1); color: #007bff; }
+    50% { transform: scaleY(1.1); color: #17a2b8; } /* Memanjang ke atas, ganti warna */
+    100% { transform: scaleY(1); color: #007bff; }
+  }
+
+  /* Animasi untuk Ikon Calendar (Filter Laporan) - Contoh: 'shake' */
+  @keyframes calendarShake {
+    0% { transform: rotate(0deg); color: #007bff; }
+    25% { transform: rotate(-5deg); color: #17a2b8; }
+    50% { transform: rotate(5deg); color: #17a2b8; }
+    75% { transform: rotate(-5deg); color: #17a2b8; }
+    100% { transform: rotate(0deg); color: #007bff; }
+  }
+
+
+  /* Menerapkan Animasi pada Ikon Spesifik saat Hover pada Kartu */
+
+  /* Masuk Kendaraan */
+  .dashboard-card-link:nth-child(1) .card:hover .dashboard-card-icon {
+    animation: carDrive 0.8s ease-in-out forwards; /* Animasi carDrive */
+  }
+
+  /* Keluar Kendaraan */
+  .dashboard-card-link:nth-child(2) .card:hover .dashboard-card-icon {
+    animation: carDrive 0.8s ease-in-out forwards; /* Animasi carDrive */
+  }
+
+  /* Atur Tarif */
+  .dashboard-card-link:nth-child(3) .card:hover .dashboard-card-icon {
+    animation: tagPop 0.5s ease-in-out forwards; /* Animasi tagPop */
+  }
+
+  /* Laporan Transaksi */
+  .dashboard-card-link:nth-child(4) .card:hover .dashboard-card-icon {
+    animation: chartGrow 0.6s ease-in-out forwards; /* Animasi chartGrow */
+  }
+
+  /* Filter Laporan Tanggal */
+  .dashboard-card-link:nth-child(5) .card:hover .dashboard-card-icon {
+    animation: calendarShake 0.7s ease-in-out forwards; /* Animasi calendarShake */
+  }
+
+
+  .dashboard-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 8px;
+  }
+  .dashboard-card-text {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  /* ... (kode CSS Anda yang lain) ... */
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      /* ... (kode media query Anda yang sudah ada) ... */
+      .dashboard-card-icon {
+          font-size: 2rem;
+      }
+  }
+
+  @media (max-width: 576px) {
+      /* ... (kode media query Anda yang sudah ada) ... */
+      .dashboard-card-icon {
+          font-size: 1.8rem;
+      }
+  }
+
+
+/* Footer Styles */
+.footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0; /* Adjusted padding */
+  text-align: center;
+  font-size: 0.9rem; /* Adjusted font size */
+  margin-top: 50px; /* Adjusted margin-top */
+}
+
+/* Parkir Masuk Specific Styles */
+.parkir-masuk-card {
+    max-width: 600px;
+    padding: 20px; /* Ensure consistent padding for forms */
+}
+.parkir-masuk-title {
+    color: #007bff;
+    font-size: 1.8rem; /* Consistent title size for forms */
+    font-weight: 600;
+}
+.form-control-lg, .form-select-lg {
+    font-size: 1.1rem; /* Slightly smaller font size for form controls */
+    padding: 0.75rem 1rem;
+    border-radius: 8px; /* Consistent border-radius */
+}
+
+/* Parkir Keluar Specific Styles */
+.parkir-keluar-card {
+    max-width: 700px;
+    padding: 20px; /* Ensure consistent padding for forms */
+}
+.parkir-keluar-title {
+    color: #28a745; /* Green for keluar */
+    font-size: 1.8rem; /* Consistent title size for forms */
+    font-weight: 600;
+}
+.btn-keluar-primary {
+    background-color: #28a745; /* Green for keluar */
+    border-color: #28a745;
+    transition: background-color 0.3s ease;
+    padding: 0.75rem 1.5rem; /* Consistent button padding */
+    border-radius: 8px; /* Consistent border-radius */
+}
+.btn-keluar-primary:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+.list-group-item-parkir {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px; /* Reduced padding */
+    border-radius: 8px; /* Consistent border-radius */
+    margin-bottom: 8px; /* Reduced margin */
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.list-group-item-parkir:hover {
+    background-color: #e2e6ea;
+    cursor: pointer;
+}
+.list-group-item-parkir.active {
+    background-color: #007bff; /* Primary blue for active, consistent with theme */
+    border-color: #007bff;
+    color: #fff;
+}
+.list-group-item-parkir.active .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+.list-group-item-parkir .badge {
+    background-color: #17a2b8 !important; /* Info blue, consistent with reports */
+    font-size: 0.8em;
+    padding: 0.4em 0.7em;
+}
+
+
+/* Tarif Edit Specific Styles */
+.tarif-edit-card {
+    max-width: 600px;
+    padding: 20px; /* Ensure consistent padding for forms */
+}
+.tarif-edit-title {
+    color: #ffc107; /* Yellow for update */
+    font-size: 1.8rem; /* Consistent title size for forms */
+    font-weight: 600;
+}
+.input-group-tarif .form-control {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+.input-group-tarif .input-group-text {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: 500;
+}
+.btn-tarif-primary {
+    background-color: #ffc107; /* Yellow for update */
+    border-color: #ffc107;
+    color: #343a40;
+    transition: background-color 0.3s ease;
+    padding: 0.75rem 1.5rem; /* Consistent button padding */
+    border-radius: 8px; /* Consistent border-radius */
+}
+.btn-tarif-primary:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+}
+
+/* Laporan (Index & Filter) Specific Styles */
+.laporan-title {
+    color: #17a2b8; /* Info color for reports */
+    font-size: 1.8rem; /* Consistent title size for forms */
+    font-weight: 600;
+}
+.table-laporan {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+.table-laporan thead {
+    background-color: #17a2b8;
+    color: #fff;
+}
+.table-laporan thead th {
+    border-color: #17a2b8;
+    padding: 12px 15px; /* Consistent table header padding */
+    font-weight: 600;
+}
+.table-laporan tbody td {
+    padding: 10px 15px; /* Consistent table cell padding */
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+}
+.table-laporan tbody tr:hover {
+    background-color: #e2e6ea;
+}
+/* DataTables Pagination Styles */
+.dataTables_wrapper .pagination .page-item.active .page-link {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #fff;
+}
+.dataTables_wrapper .pagination .page-item .page-link {
+    color: #17a2b8;
+}
+.btn-filter-laporan {
+    background-color: #17a2b8; /* Info color for filter */
+    border-color: #17a2b8;
+    transition: background-color 0.3s ease;
+    padding: 0.75rem 1.5rem; /* Consistent button padding */
+    border-radius: 8px; /* Consistent border-radius */
+}
+.btn-filter-laporan:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+.laporan-filter-badge {
+    background-color: #17a2b8 !important;
+    color: white;
+    padding: 0.5em 0.8em;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-container h2 {
+        font-size: 1.8rem;
+    }
+    .dashboard-card-body {
+        min-height: 160px;
+        padding: 15px;
+    }
+    .dashboard-card-icon {
+        font-size: 2rem;
+    }
+    .dashboard-card-title {
+        font-size: 1.2rem;
+    }
+    .dashboard-card-text {
+        font-size: 0.85rem;
+    }
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+    .nav-link {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+    .form-control-lg, .form-select-lg {
+        font-size: 1.1rem;
+        padding: 0.6rem 0.8rem;
+    }
+    .btn-primary, .btn-secondary, .btn-keluar-primary, .btn-tarif-primary, .btn-filter-laporan {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-container h2 {
+        font-size: 1.5rem;
+    }
+    .dashboard-card-body {
+        min-height: 140px;
+        padding: 10px;
+    }
+    .dashboard-card-icon {
+        font-size: 1.8rem;
+    }
+    .dashboard-card-title {
+        font-size: 1.1rem;
+    }
+    .dashboard-card-text {
+        font-size: 0.8rem;
+    }
+    .parkir-masuk-card, .parkir-keluar-card, .tarif-edit-card {
+        padding: 15px;
+    }
+    .parkir-masuk-title, .parkir-keluar-title, .tarif-edit-title, .laporan-title {
+        font-size: 1.5rem;
+    }
+
+    
+}
