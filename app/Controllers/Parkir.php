@@ -84,15 +84,15 @@ class Parkir extends BaseController
         $waktu_keluar_timestamp = strtotime($waktu_keluar);
         $durasi = $waktu_keluar_timestamp - $waktu_masuk;
         
-        // Jaga-jaga jika ada selisih minus
+        
         if ($durasi < 0) {
             $durasi = 0;
         }
         
-        // Konversi ke jam
+        
         $durasi_jam = ceil($durasi / 3600); 
         
-        // Ambil tarif
+        
         $tarif = $this->tarifModel->where('jenis_kendaraan', $parkir['jenis_kendaraan'])->first();
         
         if (!$tarif) {

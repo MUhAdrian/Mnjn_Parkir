@@ -97,18 +97,18 @@
             parkirList.addEventListener('click', function(event) {
                 const target = event.target.closest('.list-group-item-parkir');
                 if (target) {
-                    // Remove active class from all items
+                   
                     document.querySelectorAll('.list-group-item-parkir').forEach(item => {
                         item.classList.remove('active');
                     });
 
-                    // Add active class to the clicked item
+                  
                     target.classList.add('active');
 
-                    // Set the hidden input value
+                    
                     selectedParkirIdInput.value = target.dataset.id;
 
-                    // Enable the button
+                    
                     btnKeluarkan.disabled = false;
                 }
             });
